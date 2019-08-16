@@ -1,0 +1,7 @@
+FIRST THINGS FIRST
+
+1. Import mini_ecomm.sql to your mysql database
+
+2. to access endpoints, please refer to the router folder, there are set of instructions there
+
+3. For Data Posting, use postman, currently i didnot put any validation, please supply any fields needed base on the function per compoment
