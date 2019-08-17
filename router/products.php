@@ -12,7 +12,12 @@ if ($method === "GET") {
   if (isset($_POST["action"]) && $_POST["action"] === "update") {
     update($_POST, $_FILES, $_POST["id"]);
   } else {
-    create(array_merge($_POST, $_FILES));
+
+    $data = $_POST;
+    $files = $_FILES;
+
+    $createProduct = array_merge($_POST, $_FILES);
+    create($createProduct);
   }
 } else if ($method === "DELETE") {
   echo "DELETE STATUS";

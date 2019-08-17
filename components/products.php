@@ -10,7 +10,6 @@ function retrieve() {
     $stmt->setFetchMode(PDO::FETCH_ASSOC); 
 
     $result = $stmt->fetchAll();
-    
     response($result, "Products List Retrieved Successfully");
 
   } catch(Exception $err) {
@@ -40,17 +39,19 @@ function retrieveByID($id, $bool = true) {
   }
 }
 
-function create($create) {
+function create($data) {
   try {
     $conn = getConnection(); 
-    $type = explode(".", $create["picture"]['name']);
+    $type = explode(".", $data["picture"]['name']);
     $type = end($type);
-    $file_name = sha1($create["picture"]['name'].uniqid()).".".$type;
-    $file_size = $create["picture"]['size'];
-    $file_tmp = $create["picture"]['tmp_name'];
+
+    $file_name = sha1($data["picture"]['name'].uniqid()).".".$type;
+
+    $file_size = $data["picture"]['size'];
+    $file_tmp = $data["picture"]['tmp_name'];
     $file_type = $_FILES['picture']['type'];
     $directory = ROOT_DIRECTORY."uploads/".$file_name;
-    $create["picture"] = $directory;
+    $data["picture"] = $directory;
 
     if ($file_size > 2097152) {
       response(
@@ -62,9 +63,9 @@ function create($create) {
 
     if (move_uploaded_file($file_tmp, $directory)) {
         $stmt = $conn->prepare("INSERT into products (name, description, category_id, image) values (:name, :description, :category_id, :image)");
-        $stmt->bindParam(':name', $create["name"]);
-        $stmt->bindParam(':description', $create["description"]);
-        $stmt->bindParam(':category_id', $create["category_id"]);
+        $stmt->bindParam(':name', $data["name"]);
+        $stmt->bindParam(':description', $data["description"]);
+        $stmt->bindParam(':category_id', $data["category_id"]);
         $directory = PROJECT_HOST."uploads/".$file_name;
         $stmt->bindParam(':image', $directory);
         $stmt->execute();
@@ -73,7 +74,7 @@ function create($create) {
         
         $result = retrieveByID($id, false);
         
-        response($result, "Product With Name: {$create['name']} Created Successfully");
+        response($result, "Product With Name: {$data['name']} Created Successfully");
     } else {
         $this->send(
             array(),

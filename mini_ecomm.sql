@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+-- MySQL dump 10.16  Distrib 10.1.39-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: mini_ecomm
 -- ------------------------------------------------------
--- Server version	5.7.17
+-- Server version	10.1.39-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,7 +29,7 @@ CREATE TABLE `categories` (
   `date_updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'sperry','2019-08-16 14:15:47','2019-08-16 15:01:00',1),(2,'Adidas','2019-08-16 14:15:47','2019-08-16 14:15:47',1),(3,'World Balance','2019-08-16 14:15:47','2019-08-16 14:15:47',1),(4,'nike','2019-08-16 15:03:58','2019-08-16 15:03:58',1),(5,'nike','2019-08-16 15:04:50','2019-08-16 15:04:50',1),(6,'nike','2019-08-16 15:06:24','2019-08-16 15:06:24',1),(7,'nike','2019-08-16 15:07:09','2019-08-16 15:07:09',1),(8,'nike','2019-08-16 15:07:41','2019-08-16 15:07:41',1);
+INSERT INTO `categories` VALUES (1,'sperry','2019-08-16 14:15:47','2019-08-16 15:01:00',1),(2,'Adidas','2019-08-16 14:15:47','2019-08-16 14:15:47',1),(3,'World Balance','2019-08-16 14:15:47','2019-08-16 14:15:47',1),(9,'Blue fish Boat shoes','2019-08-17 14:16:40','2019-08-17 14:16:40',1),(10,'New PRoduct Sample','2019-08-17 14:38:51','2019-08-17 14:38:51',1);
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,7 +60,7 @@ CREATE TABLE `products` (
   PRIMARY KEY (`id`),
   KEY `category_id` (`category_id`),
   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'James1231321','one piece character',2,'2019-08-16 15:33:20','2019-08-16 15:33:20','/Library/WebServer/Documents/back-ecommerce/uploads/d252074d6e07005e1a173dbba98a56517c95d1f2.png'),(2,'Alden Richardsssss','crush sssss bayan',1,'2019-08-16 15:33:54','2019-08-16 16:02:14','http://localhost/back-ecommerce/uploads/78d2e751757384f0d46f9372f6255b6d83b77ab3.png'),(3,'Alden','habulin ng chix',3,'2019-08-16 15:36:20','2019-08-16 15:36:20','/Library/WebServer/Documents/back-ecommerce/uploads/f66e7a2697f16348bc3f2fccbe5fd5f407bddece.jpg'),(4,'Alden','habulin ng chix',3,'2019-08-16 15:37:59','2019-08-16 15:37:59','/Library/WebServer/Documents/back-ecommerce/uploads/5842dea2ce3a5c7de4e1178c5f794fc5c57cb24c.jpg'),(5,'Alden','habulin ng chix',3,'2019-08-16 15:39:47','2019-08-16 15:39:47','uploads/7dcd63d1933774075b85414340199004443c601f.jpg'),(6,'Alden','habulin ng chix',3,'2019-08-16 15:40:29','2019-08-16 15:40:29','{PROJECT_HOST}uploads/5b42cc5e89b81e089a7cf6ded70570aec2519695.jpg'),(7,'Alden','habulin ng chix',3,'2019-08-16 15:40:42','2019-08-16 15:40:42','http://localhost/back-ecommerce/uploads/afc0337e10d3a157fe43639c1c02d856a6cf7274.jpg'),(8,'Alden','habulin ng chix',3,'2019-08-16 15:50:52','2019-08-16 15:50:52','http://localhost/back-ecommerce/uploads/b84eb732eb3fb764bb2d7f0c998c387978e83b12.jpg'),(9,'Aldensss','habulin ng chixsss',3,'2019-08-16 16:05:11','2019-08-16 16:05:11','http://localhost/back-ecommerce/uploads/ad52f2f3e9fd386410a0400282ecc6ff8339fc37.png');
+INSERT INTO `products` VALUES (7,'Alden','habulin ng chix',3,'2019-08-16 15:40:42','2019-08-16 15:40:42','http://localhost/back-ecommerce/uploads/afc0337e10d3a157fe43639c1c02d856a6cf7274.jpg'),(8,'Alden','habulin ng chix',3,'2019-08-16 15:50:52','2019-08-16 15:50:52','http://localhost/back-ecommerce/uploads/b84eb732eb3fb764bb2d7f0c998c387978e83b12.jpg'),(9,'Aldensss','habulin ng chixsss',3,'2019-08-16 16:05:11','2019-08-16 16:05:11','http://localhost/back-ecommerce/uploads/ad52f2f3e9fd386410a0400282ecc6ff8339fc37.png'),(10,'Nike tiger yellow','yellow shoes',1,'2019-08-17 08:00:36','2019-08-17 08:00:36','http://localhost/back-ecommerce/uploads/00246a52fbe08bc8d319f81b8102320bb6406f8d.jpeg'),(11,'Nike Tiger Yellow Shoes','yellow shoes worn',1,'2019-08-17 08:30:44','2019-08-17 08:30:44','http://localhost/back-ecommerce/uploads/26f1cfc75b0319a806d9840d9833019140f6bb4c.jpeg'),(12,'Nike tiger yellow','yellow shoes',1,'2019-08-17 08:41:29','2019-08-17 08:41:29','http://localhost/back-ecommerce/uploads/bac1f04542a99d3166916cfb7dea94793ad5b245.jpeg'),(13,'Blue fish Boat shoes','Good Shoes for Formal attire',1,'2019-08-17 13:39:07','2019-08-17 13:39:07','http://localhost/back-ecommerce/uploads/53f9ad7930f9b1a9b563051bf16e811ed9f7434d.jpg'),(14,'Blue fish Boat shoes','Good Shoes for Formal attire',1,'2019-08-17 13:46:17','2019-08-17 13:46:17','http://localhost/back-ecommerce/uploads/d786a40cfd99bf382645e7286962ea04b9525840.png'),(15,'Blue fish Boat shoes','Good Shoes for Formal attire',1,'2019-08-17 13:59:25','2019-08-17 13:59:25','http://localhost/back-ecommerce/uploads/4ae09d1c7e84483ee8a13c127239451e8de17059.png'),(16,'Blue fish Boat shoes','Good Shoes for Formal attire',1,'2019-08-17 14:05:43','2019-08-17 14:05:43','http://localhost/back-ecommerce/uploads/40e45c3b2875497a2fe51988af0dfe591b202b21.png'),(17,'dsadsada','dsadsadsa',3,'2019-08-17 14:40:11','2019-08-17 14:40:11','http://localhost/back-ecommerce/uploads/e549bcc9ec19859dcadfb21c8ec08f95972d7c27.jpg');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,4 +168,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-16 19:36:51
+-- Dump completed on 2019-08-17 15:07:53
